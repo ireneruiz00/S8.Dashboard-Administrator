@@ -3,11 +3,10 @@ const mongoose = require("mongoose")
 const statsSchema = new mongoose.Schema({
   label: String,
   value: Number,
-  type: {
-    type: String, // "bar" o "line"
-  }
-});
+  type: String,
+  date: { type: Date, default: Date.now },
+})
 
 module.exports = mongoose.model("Stats", statsSchema)
 
-//qué datos quiero mostrar en los charts
+//qué datos estadísticos quiero mostrar en los charts

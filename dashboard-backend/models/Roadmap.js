@@ -3,7 +3,8 @@ const mongoose = require('mongoose')
 const roadmapSchema = new mongoose.Schema({
     title: {type: String, required: true},
     description: String,
-    topics: {type: [String], required: true},
+    tags: {type: [String], required: true},
+    category: String,
     durationWeeks: Number,
     createdAt: {type: Date, default: Date.now},
     owner: String,
