@@ -14,9 +14,9 @@
 // DELETE /api/roadmaps/:id
 // Si un roadmap es obsoleto o incorrecto, el admin puede eliminarlo.
 
-const express = require("express");
-const router = express.Router();
-const ctrl = require("../controllers/roadmap.controller");
+const express = require("express")
+const router = express.Router()
+const ctrl = require("../controllers/roadmap.controller")
 
 router.get("/", ctrl.getAllRoadmaps) 
 router.get("/:id", ctrl.getRoadmapById)
