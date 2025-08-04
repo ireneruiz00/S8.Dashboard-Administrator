@@ -7,7 +7,7 @@ const roadmapSchema = new mongoose.Schema({
     category: String,
     durationWeeks: Number,
     createdAt: {type: Date, default: Date.now},
-    owner: String,
+    owner: {type: String, required: true},
 })
 
 module.exports = mongoose.model('Roadmap', roadmapSchema)

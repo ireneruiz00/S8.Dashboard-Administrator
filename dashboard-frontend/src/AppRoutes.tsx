@@ -1,19 +1,19 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "./components/Home";
-import Map from "./components/Map";
-import Calendar from "./components/Calendar";
-import Charts from "./components/Charts";
-import RoadmapTable from "./components/RoadmapTable";
+import HomePage from "./pages/HomePage";
+import RoadmapPage from "./pages/RoadmapPage";
+import MapPage from "./pages/MapPage";
+import CalendarPage from "./pages/CalendarPage";
+import ChartsPage from "./pages/ChartsPage";
 
 
 function AppRoutes() {
   return (
     <Routes>
-        <Route path="/" element={<Home/>}></Route>
-        <Route path="/roadmap-table" element={<RoadmapTable/>}></Route>
-        <Route path="/map" element={<Map/>}></Route>
-        <Route path="/calendar" element={<Calendar/>}></Route>
-        <Route path="/charts" element={<Charts/>}></Route>
+        <Route path="/" element={<HomePage/>}></Route>
+        <Route path="/roadmap-table" element={<RoadmapPage/>}></Route>
+        <Route path="/map" element={<MapPage/>}></Route>
+        <Route path="/calendar" element={<CalendarPage/>}></Route>
+        <Route path="/charts" element={<ChartsPage/>}></Route>
     </Routes>
   )
 }
