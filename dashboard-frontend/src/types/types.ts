@@ -5,6 +5,6 @@ export interface Roadmap {
   tags: string[]
   category: string
   durationWeeks: number
-  owner: String
+  owner: string
   createdAt?: string
 }
