@@ -1,6 +1,6 @@
 import { CalendarEvent } from "../types/types"
 
-const API = "/api/events"
+const API = "http://localhost:5000/api/events"
 
 export const fetchEvents = async (): Promise<CalendarEvent[]> => {
   const res = await fetch(API)
