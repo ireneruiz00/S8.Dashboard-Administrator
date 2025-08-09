@@ -19,6 +19,16 @@ const createEvent = async (req, res) => {
   }
 }
 
+const updateEvent = async (req, res) => {
+  try {
+    const updated = await Event.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    if (!updated) return res.status(404).json({ error: "Event not found" })
+    res.status(200).json(updated);
+  } catch (error) {
+    res.status(400).json({ error: "Error updating event" })
+  }
+}
+
 const deleteEvent = async (req, res) => {
   try {
     const deleted = await Event.findByIdAndDelete(req.params.id)
@@ -32,5 +42,6 @@ const deleteEvent = async (req, res) => {
 module.exports = {
   getAllEvents,
   createEvent,
+  updateEvent,
   deleteEvent,
 }
