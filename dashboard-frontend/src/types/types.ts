@@ -17,4 +17,5 @@ export interface CalendarEvent {
   allDay?: boolean
   roadmapId?: string
   type?: string // tarea, deadline, etc.
+  color?: string
 }
