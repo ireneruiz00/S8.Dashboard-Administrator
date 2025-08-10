@@ -28,38 +28,41 @@ function Calendar() {
   }, [])
 
   const handleDateSelect = (info: any) => {
-    setSelectedEvent(null);
-    setSelectedDate({ start: info.start, end: info.end });
-    setModalOpen(true);
+    setSelectedEvent(null)
+    setSelectedDate({ start: info.start, end: info.end })
+    setModalOpen(true)
   }
 
   const handleEventClick = (info: any) => {
-    const event = events.find((e) => e._id === info.event.id);
+    const event = events.find((e) => e._id === info.event.id)
     if (event) {
-      setSelectedEvent(event);
-      setModalOpen(true);
+      setSelectedEvent(event)
+      setModalOpen(true)
     }
   }
 
   const handleSave = async (data: Partial<CalendarEvent>) => {
     if (selectedEvent) {
-      await updateEvent(selectedEvent._id!, data);
+      await updateEvent(selectedEvent._id!, {
+      ...selectedEvent,
+      ...data,
+    })
     } else {
       await createEvent({
         ...data,
         start: data.start || selectedDate?.start!,
         end: data.end || selectedDate?.end,
-      } as CalendarEvent);
+      } as CalendarEvent)
     }
-    setModalOpen(false);
-    loadEvents();
-  };
+    setModalOpen(false)
+    loadEvents()
+  }
 
   const handleDelete = async () => {
     if (selectedEvent?._id) {
-      await deleteEvent(selectedEvent._id);
-      setModalOpen(false);
-      loadEvents();
+      await deleteEvent(selectedEvent._id)
+      setModalOpen(false)
+      loadEvents()
     }
   }
 
@@ -83,7 +86,10 @@ function Calendar() {
 
       <EventModal
         isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
+        onClose={() => 
+          {setSelectedEvent(null) 
+            setModalOpen(false)
+        }}
         onSave={handleSave}
         onDelete={selectedEvent ? handleDelete : undefined}
         initialData={selectedEvent || undefined}

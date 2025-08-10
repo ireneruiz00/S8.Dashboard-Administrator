@@ -19,3 +19,12 @@ export interface CalendarEvent {
   type?: string // tarea, deadline, etc.
   color?: string
 }
+
+export interface Location {
+  _id?: string;
+  name: string;
+  latitude: number;
+  longitude: number;
+  type?: string; // empresa, curso, evento...
+  roadmapId?: string;
+}
