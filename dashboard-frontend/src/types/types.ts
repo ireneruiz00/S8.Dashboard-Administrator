@@ -29,3 +29,11 @@ export interface Location {
   type?: string // empresa, curso, evento...
   roadmapId?: string
 }
+
+export interface Stat {
+  _id: string;
+  label: string;
+  value: number;
+  type: string;
+  date: string;
+}
