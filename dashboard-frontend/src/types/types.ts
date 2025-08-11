@@ -1,3 +1,4 @@
+
 export interface Roadmap {
   _id: string
   title: string
@@ -21,10 +22,10 @@ export interface CalendarEvent {
 }
 
 export interface Location {
-  _id?: string;
-  name: string;
-  latitude: number;
-  longitude: number;
-  type?: string; // empresa, curso, evento...
-  roadmapId?: string;
+  _id?: string
+  name: string
+  latitude: number
+  longitude: number
+  type?: string // empresa, curso, evento...
+  roadmapId?: string
 }
