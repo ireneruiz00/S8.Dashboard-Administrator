@@ -9,7 +9,7 @@ import ChartsPage from "./pages/ChartsPage";
 function AppRoutes() {
   return (
     <Routes>
-        <Route path="/" element={<HomePage/>}></Route>
+        <Route path="/" element={<RoadmapPage/>}></Route>
         <Route path="/roadmap-table" element={<RoadmapPage/>}></Route>
         <Route path="/map" element={<MapPage/>}></Route>
         <Route path="/calendar" element={<CalendarPage/>}></Route>
