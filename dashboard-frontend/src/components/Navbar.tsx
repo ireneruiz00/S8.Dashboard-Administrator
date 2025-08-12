@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom'
 
 function Navbar() {
   return (
-     <div className="flex justify-center space-x-2 bg-gray-100 p-2">
+     <div className="flex justify-center space-x-2 bg-gray-100">
       <NavLink
         to="/roadmap-table"
         className={({ isActive }) =>
