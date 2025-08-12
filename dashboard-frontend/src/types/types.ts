@@ -30,10 +30,12 @@ export interface Location {
   roadmapId?: string
 }
 
-export interface Stat {
-  _id: string;
+export interface StatItem {
   label: string;
   value: number;
-  type: string;
-  date: string;
+}
+
+export interface RealStatsResponse {
+  status: StatItem[];
+  categories: StatItem[];
 }

@@ -1,4 +1,3 @@
-const Stats = require('../models/Stats')
 const Roadmap = require("../models/Roadmap")
 
 const getRealStats = async (req, res) => {
