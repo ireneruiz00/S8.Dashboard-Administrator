@@ -24,13 +24,13 @@ export const updateEvent = async (id: string, event: Partial<CalendarEvent>): Pr
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(event),
   })
-  if (!res.ok) throw new Error("Error updating event");
-  return res.json();
+  if (!res.ok) throw new Error("Error updating event")
+  return res.json()
 }
 
 export const deleteEvent = async (id: string): Promise<void> => {
   const res = await fetch(`${API}/${id}`, {
     method: "DELETE",
   })
-  if (!res.ok) throw new Error("Error deleting event");
+  if (!res.ok) throw new Error("Error deleting event")
 }

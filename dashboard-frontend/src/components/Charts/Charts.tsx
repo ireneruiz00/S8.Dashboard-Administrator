@@ -20,7 +20,7 @@ function Charts() {
 
   useEffect(() => {
     fetchStats().then(setData).catch(console.error)
-  }, []);
+  }, [])
 
   if (!data) return <p>Loading...</p>
 

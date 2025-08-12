@@ -1,61 +1,60 @@
-import "leaflet/dist/leaflet.css";
-import { useEffect, useState } from "react";
-import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from "react-leaflet";
-import { Location } from "../../types/types";
-import { fetchLocations, createLocation } from "../../services/locationService"; 
-import LocationModal from "./LocationModal";
-import L from "leaflet";
+import "leaflet/dist/leaflet.css"
+import { useEffect, useState } from "react"
+import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from "react-leaflet"
+import { Location } from "../../types/types"
+import { fetchLocations, createLocation } from "../../services/locationService"
+import LocationModal from "./LocationModal"
+import L from "leaflet"
 
-// Icono por defecto arreglado para React-Leaflet
 const defaultIcon = new L.Icon({
   iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
   iconRetinaUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
   shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
   iconSize: [25, 41],
   iconAnchor: [12, 41],
-});
-L.Marker.prototype.options.icon = defaultIcon;
+})
+L.Marker.prototype.options.icon = defaultIcon
 
 function ClickHandler({ onClick }: { onClick: (latlng: [number, number]) => void }) {
   useMapEvents({
     click(e) {
       onClick([e.latlng.lat, e.latlng.lng]);
     },
-  });
-  return null;
+  })
+  return null
 }
 
 function Map() {
-  const [locations, setLocations] = useState<Location[]>([]);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [clickedLatLng, setClickedLatLng] = useState<[number, number] | null>(null);
+  const [locations, setLocations] = useState<Location[]>([])
+  const [modalOpen, setModalOpen] = useState(false)
+  const [clickedLatLng, setClickedLatLng] = useState<[number, number] | null>(null)
 
   useEffect(() => {
-    loadLocations();
-  }, []);
+    loadLocations()
+  }, [])
 
   const loadLocations = async () => {
     try {
-      const data = await fetchLocations();
-      setLocations(data);
+      const data = await fetchLocations()
+      setLocations(data)
     } catch (err) {
-      console.error(err);
-      alert("Error cargando ubicaciones");
+      console.error(err)
+      alert("Error loading locations")
     }
-  };
+  }
 
   const handleMapClick = (latlng: [number, number]) => {
     setClickedLatLng(latlng)
     setModalOpen(true)
-  };
+  }
 
   const handleSaveLocation = async (location: Omit<Location, "_id">) => {
     try {
-      await createLocation(location);
-      loadLocations();
+      await createLocation(location)
+      loadLocations()
     } catch (err) {
-      console.error(err);
-      alert("Error guardando ubicación");
+      console.error(err)
+      alert("Error guardando ubicación")
     }
   }
 

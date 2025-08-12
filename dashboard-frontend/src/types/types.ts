@@ -7,6 +7,7 @@ export interface Roadmap {
   category: string
   durationWeeks: number
   owner: string
+  status: string
   createdAt?: string
 }
 

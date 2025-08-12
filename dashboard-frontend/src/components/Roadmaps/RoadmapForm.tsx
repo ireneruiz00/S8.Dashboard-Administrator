@@ -13,7 +13,7 @@ const emptyForm: Partial<Roadmap> = {
   owner: DEFAULT_OWNER,
 }
 
-const RoadmapForm = ({ onSubmit }: RoadmapFormProps) => {
+function RoadmapForm ({ onSubmit }: RoadmapFormProps) {
   const [form, setForm] = useState<Partial<Roadmap>>(emptyForm)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

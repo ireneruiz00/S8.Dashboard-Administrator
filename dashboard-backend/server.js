@@ -18,7 +18,6 @@ app.use("/api/roadmaps", require("./routes/roadmap.routes"))
 app.use("/api/locations", require("./routes/location.routes")) 
 app.use("/api/events", require("./routes/event.routes"))
 app.use("/api/stats", require("./routes/stats.routes"))
-app.use("/api/users", require("./routes/user.routes"))
 
 // Servidor escuchando
 app.listen(PORT, () => {

@@ -1,5 +1,5 @@
- import { useState } from "react";
-import type { LocationModalProps } from "../../types/props";
+import { useState } from "react"
+import type { LocationModalProps } from "../../types/props"
 
 function LocationModal({isOpen, onClose, onSave, initialLatLng }: LocationModalProps) {
   const [type, setType] = useState("")

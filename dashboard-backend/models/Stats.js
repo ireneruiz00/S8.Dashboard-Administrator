@@ -8,7 +8,3 @@ const statsSchema = new mongoose.Schema({
 })
 
 module.exports = mongoose.model("Stats", statsSchema)
-
-//qué datos estadísticos quiero mostrar en los charts
-
-//CATEGORY (PORCENTAJE DE CADA UNA), ROADMAPS ACTIVOS, ROADMPAS COMPLETADOS 

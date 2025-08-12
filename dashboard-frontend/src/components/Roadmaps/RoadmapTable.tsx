@@ -4,7 +4,7 @@ import { fetchRoadmaps, createRoadmap, updateRoadmap, deleteRoadmap, } from "../
 import RoadmapForm from "./RoadmapForm"
 import InlineEditRow from "./InlineRowEdit"
 
-const RoadmapTable = () => {
+function RoadmapTable () {
   const [roadmaps, setRoadmaps] = useState<Roadmap[]>([])
   const [loading, setLoading] = useState(true)
   const [editingId, setEditingId] = useState<string | null>(null)
@@ -61,6 +61,7 @@ const RoadmapTable = () => {
               <th className="border p-2">Duration</th>
               <th className="border p-2">Description</th>
               <th className="border p-2">Owner</th>
+              <th className="border p-2">Status</th>
               <th className="border p-2">Actions</th>
             </tr>
           </thead>
@@ -80,6 +81,7 @@ const RoadmapTable = () => {
                     <td className="border p-2">{r.durationWeeks}</td>
                     <td className="border p-2">{r.description}</td>
                     <td className="border p-2">{r.owner}</td>
+                    <td className="border p-2">{r.status}</td>
                     <td className="border p-2 space-x-2 flex justify-center">
                       <button
                         onClick={() => setEditingId(r._id)}
@@ -102,7 +104,6 @@ const RoadmapTable = () => {
         </table>
       )}
 
-      {/* Formulario para crear */}
       <RoadmapForm onSubmit={handleSave} />
     </div>
   )

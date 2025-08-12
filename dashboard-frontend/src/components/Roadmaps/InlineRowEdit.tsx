@@ -3,9 +3,7 @@ import { useState } from "react"
 import { Roadmap } from "../../types/types"
 import type { RowEditProps } from "../../types/props"
 
-
-
-const InlineEditRow = ({ roadmap, onSave, onCancel }: RowEditProps) => {
+function InlineEditRow ({ roadmap, onSave, onCancel }: RowEditProps) {
     const [form, setForm] = useState<Partial<Roadmap>>(roadmap)
 
   const handleChange = (
@@ -61,6 +59,9 @@ const InlineEditRow = ({ roadmap, onSave, onCancel }: RowEditProps) => {
           onChange={handleChange}
           className="w-full border px-1 py-0.5"
         />
+      </td>
+      <td className="border p-2">
+        {form.owner || ""}
       </td>
       <td className="border p-2 space-x-1">
         <button
