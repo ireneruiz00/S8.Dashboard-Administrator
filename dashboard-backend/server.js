@@ -13,6 +13,11 @@ app.use(express.json()) // para poder leer JSON en las peticiones
 const connectDB = require("./config/db")
 connectDB()
 
+// Rutas
+app.use("/api/roadmaps", require("./routes/roadmap.routes"))
+app.use("/api/locations", require("./routes/location.routes")) 
+app.use("/api/events", require("./routes/event.routes"))
+app.use("/api/stats", require("./routes/stats.routes"))
 
 // Servidor escuchando
 app.listen(PORT, () => {
